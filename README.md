@@ -2,7 +2,7 @@
 
 ## Table of Contents 
 1. [Overview](#overview)
-2. [Methodology](#methodology)
+2. [Methodology](#methodology) 
 3. [Data](#data)
 4. [Results](#results)
 
