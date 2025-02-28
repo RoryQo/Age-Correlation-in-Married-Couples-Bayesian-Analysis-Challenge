@@ -6,10 +6,10 @@
   </tr>
   <tr>
     <td>1. <a href="#overview">Overview</a></td>
-    <td>3. <a href="#data">Data</a></td>
+    <td>3. <a href="#methodology">Methodology</a></td>
   </tr>
   <tr>
-    <td>2. <a href="#methodology">Methodology</a></td>
+    <td>2. <a href="#data">Data</a></td>
     <td>4. <a href="#results">Results</a></td>
   </tr>
 </table>
@@ -41,8 +41,8 @@ After visualizing the relationship between husband and wife ages, we hypothesize
 We generate predictive datasets by sampling from the established priors. These datasets are compared with actual data to ensure our hypothesis is correct. The generated scatter plots show a **strong positive correlation** between the ages of the spouses, validating the choice of priors.
 
 <div align="center">
-  <img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/PredictiveDataSets.jpg" width="450" />
-  <img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/DataRelationship.jpg" width="450" />
+  <img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/PredictiveDataSets.jpg" width="400" />
+  <img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/DataRelationship.jpg" width="400" />
 </div>
 
 ### 3. MCMC Approximation
@@ -85,15 +85,23 @@ The Bayesian analysis yielded narrower confidence intervals compared to traditio
 
 These improvements highlight the advantage of incorporating prior information in Bayesian analysis, particularly for small sample sizes where frequentist methods can yield wide confidence intervals.
 
-<img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/Improvement.jpg" width="900" />
+<img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/Improvement.jpg" width="950" />
 
 
 ### Bayesian Confidence Intervals
 Using Bayesian methods, we generated the following confidence intervals (CI) for the average ages and correlation coefficient:
 
 - **Husbands' Average Age CI**: [40.5, 43.5]
+
 - **Wives' Average Age CI**: [38.5, 41.5]
+
 - **Correlation Coefficient CI**: [0.85, 0.92]
+
+<div align="center">
+<img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/HusbandDist.jpg" width="300" />
+<img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/WifeDist.jpg" width="300" />
+<img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/CorrDist.jpg" width="300" />
+</div>
 
 ### Frequentist Confidence Intervals
 In contrast, the frequentist approach yielded the following intervals:
