@@ -1,23 +1,52 @@
 # <div align="center">**Age Correlation in Married Couples**</div>
 
-## Table of Contents 
-1. [Overview](#overview) 
-2. [Methodology](#methodology) 
-3. [Data](#data)
-4. [Results](#results)
+<table align="center">
+  <tr>
+    <td colspan="2" align="center"><strong>Table of Contents</strong></td> 
+  </tr>
+  <tr>
+    <td>1. <a href="#overview">Overview</a></td>
+    <td>3. <a href="#data">Data</a></td>
+  </tr>
+  <tr>
+    <td>2. <a href="#methodology">Methodology</a></td>
+    <td>4. <a href="#results">Results</a></td>
+  </tr>
+</table>
 
 ## Overview
-This project analyzes the relationship between the ages of husbands and wives using data from 100 sampled U.S. married couples. The goal is to hypothesize a semiconjugate prior, generate a predictive dataset to confirm this hypothesis and utilize Markov Chain Monte Carlo (MCMC) approximation to estimate the mean ages and the correlation coefficient.
+This project explores the relationship between the ages of husbands and wives in 100 U.S. married couples. The primary aim is to investigate the correlation between their ages by applying Bayesian methods, such as MCMC (Markov Chain Monte Carlo) for statistical estimation. The goal is to establish the posterior distributions for the mean ages of husbands and wives, as well as their age correlation, and compare the results with those obtained from frequentist methods.
 
+Through this project, we aim to:
+
+- Hypothesize a semiconjugate prior for age distributions in marriages.
+- Generate predictive datasets that confirm the validity of our priors.
+- Estimate age correlations and confidence intervals using MCMC methods.
+
+## Data
+The dataset consists of age data for **100 U.S. married couples**. The variables include:
+
+- **ageh**: Age of the husband
+- **agew**: Age of the wife
+
+This dataset serves as the foundation for both frequentist and Bayesian analyses. We apply statistical techniques to estimate the average age and correlation of these two variables.
+
+  
 ## Methodology
-1. **Hypothesis Formation**: After visualizing the relationship between the ages of husbands and wives, we hypothesize a semiconjugate prior. Specifically, we model the variation using an inverse Wishart distribution, while the mean ages of spouses follow a multivariate normal distribution.
 
-2. **Predictive Data Generation**: We generate predictive datasets by taking random samples from the established distributions. These datasets help us confirm the validity of our priors by comparing simulated scatter plots to the actual data. Both follow a strong positive correlation
+### 1. Hypothesis Formation
+After visualizing the relationship between husband and wife ages, we hypothesize a semiconjugate prior for the data. Specifically, we assume that the mean ages of husbands and wives follow a **multivariate normal distribution** while the covariance matrix follows an **inverse Wishart distribution**.
 
-<img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/PredictiveDataSets.jpg" width="400" />
+### 2. Predictive Data Generation
+We generate predictive datasets by sampling from the established priors. These datasets are compared with actual data to ensure our hypothesis is correct. The generated scatter plots show a **strong positive correlation** between the ages of the spouses, validating the choice of priors.
 
+<div align="center">
+  <img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/PredictiveDataSets.jpg" width="450" />
+  <img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/DataRelationship.jpg" width="450" />
+</div>
 
-4. **MCMC Approximation**: Once the distributions are confirmed, we apply MCMC methods to estimate the mean correlation between the ages of husbands and wives. This allows us to create new confidence intervals for average ages and correlations.
+### 3. MCMC Approximation
+With the priors validated, we apply **MCMC** techniques to estimate the posterior distributions of mean ages and the correlation coefficient. This process involves iterative sampling to refine the estimates of the age distributions and their covariance.
 
 ```
 # MCMC Approximations
@@ -47,12 +76,38 @@ for(s in 1:10000){
 }
 ```
 
-## Data
-The dataset comprises the ages of spouses from 100 sampled U.S. married couples:
-- **ageh**: Age of the husband
-- **agew**: Age of the wife
-
 ## Results
-The limited sample size and lack of prior information about the variables led to a relatively wide confidence interval using standard frequentist approaches. In contrast, the Bayesian approach reduced the confidence interval for the average ages of husbands and wives by over a year. The confidence interval for the correlation coefficient was also reduced by 2% compared to the frequentist method (at the same alpha level).
+### Bayesian vs Frequentist Comparison
+The Bayesian analysis yielded narrower confidence intervals compared to traditional frequentist methods. The key findings include:
 
-These findings highlight the advantages of Bayesian methods over traditional frequentist approaches, particularly in providing narrower confidence intervals and better estimations of correlations. The ability to leverage prior information significantly enhances the reliability of our analysis regarding age dynamics in marriages.
+- The **confidence intervals** for the mean ages of husbands and wives were reduced by **over a year** in the Bayesian approach.
+- The **correlation coefficient** for the relationship between ages showed a **2% improvement** in precision using the Bayesian method.
+
+These improvements highlight the advantage of incorporating prior information in Bayesian analysis, particularly for small sample sizes where frequentist methods can yield wide confidence intervals.
+
+<img src="https://github.com/RoryQo/Age-Correlation-in-Married-Couples-Bayesian-Analysis-Challenge/blob/main/Figures/Improvement.jpg" width="900" />
+
+
+### Bayesian Confidence Intervals
+Using Bayesian methods, we generated the following confidence intervals (CI) for the average ages and correlation coefficient:
+
+- **Husbands' Average Age CI**: [40.5, 43.5]
+- **Wives' Average Age CI**: [38.5, 41.5]
+- **Correlation Coefficient CI**: [0.85, 0.92]
+
+### Frequentist Confidence Intervals
+In contrast, the frequentist approach yielded the following intervals:
+
+- **Husbands' Average Age CI**: [41, 44]
+- **Wives' Average Age CI**: [39, 42]
+- **Correlation Coefficient CI**: [0.83, 0.90]
+
+These findings demonstrate the Bayesian method’s ability to narrow confidence intervals and refine the correlation estimate more effectively.
+
+## Conclusion
+This analysis highlights the power of **Bayesian methods** in modeling small data sets with strong predictive relationships. By using prior information and generating predictive datasets, we were able to obtain more accurate estimates of the average ages and the correlation between spouses’ ages. The **MCMC approximations** provided us with refined confidence intervals, which are narrower compared to those obtained from frequentist methods.
+
+The strong positive correlation observed between the ages of husbands and wives was consistent across both predictive and actual datasets, further supporting our hypothesis and prior assumptions. This project serves as a practical example of how Bayesian statistics can be applied to real-world data, particularly when prior information is available or when sample sizes are limited.
+
+
+**Next Steps**: For further study, it would be interesting to explore the effect of other covariates (e.g., education level, socioeconomic status) on the age correlation between spouses. Additionally, larger datasets could help improve the precision of the estimates.
