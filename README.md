@@ -1,6 +1,6 @@
 # <div align="center">**Age Correlation in Married Couples**</div>
 
-<table align="center">
+<table align="center"> 
   <tr>
     <td colspan="2" align="center"><strong>Table of Contents</strong></td> 
   </tr>
